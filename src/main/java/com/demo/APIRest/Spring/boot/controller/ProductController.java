@@ -9,17 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.APIRest.Spring.boot.entities.Product;
 import com.demo.APIRest.Spring.boot.repositories.ProductRepository;
+import com.demo.APIRest.Spring.boot.services.ProductService;
 
 @RestController
 @RequestMapping(value = "/products")
 public class ProductController {
 	
 	@Autowired
-	private ProductRepository productRepository;
+	private ProductService productServices;
 	
 	@GetMapping
 	public List<Product> findAll(){
-		List<Product> list = productRepository.findAll();
+		List<Product> list = productServices.findAll();
 		return list;
 	}
 }
